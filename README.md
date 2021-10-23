@@ -2,5 +2,5 @@
 
 This app was a code along session organized by clever programmer on youtube.
 
-Other functionalities not in the video that were included by me are:\n
+Other functionalities not in the video that were included by me are:
 - [ ]
