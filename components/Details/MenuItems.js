@@ -122,7 +122,7 @@ const FoodInfo = (props) => (
 const FoodImage = (props) => (
   <Image
     source={{ uri: props.food.image }}
-    style={{ width: 100, height: 100, borderRadius: 9 }}
+    style={{ width: 100, height: 100, borderRadius: 8 }}
   />
 );
 
