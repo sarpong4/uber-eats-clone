@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, SafeAreaView, ScrollView } from "react-native";
+import { Divider } from "react-native-elements/dist/divider/Divider";
+import BottomTabs from "../components/BottomTabs";
 import Categories from "../components/Categories";
 import HeaderTabs from "../components/HeaderTabs";
 import RestaurantItems, {
@@ -14,6 +16,7 @@ export default function Home() {
   const [restaurantData, setRestaurantData] = useState(localRestaurants);
   const [city, setCity] = useState("Hollywood");
   const [activeTab, setActiveTab] = useState("Delivery");
+  const [page, setPage] = useState("Home")
 
   const getRestaurantsFromYelp = async () => {
     const yelpURL = `https://api.yelp.com/v3/businesses/search?term=restaurant&location=${city}`;
@@ -49,6 +52,8 @@ export default function Home() {
         <Categories />
         <RestaurantItems restaurantData={restaurantData} />
       </ScrollView>
+      <Divider width={1} />
+      <BottomTabs page={page} />
     </SafeAreaView>
   );
 }
