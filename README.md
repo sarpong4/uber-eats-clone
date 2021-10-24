@@ -10,9 +10,10 @@ SCREENS COMPLETED
 -   [ ] Profile Screen
 
 ### Home Screen (City: Hollywood)
-#### Delivery              |  #### Pickup
-:-------------------------:|:-------------------------:
-![Screenshot_20211024-005954](https://user-images.githubusercontent.com/33718928/138575911-a909a701-d124-4e0a-b989-a0d785f13dc0.png)  |  ![Screenshot_20211024-003512](https://user-images.githubusercontent.com/33718928/138575872-05d5df0e-1fe4-455c-9caa-7a4e8a90f3d3.png)
+<p float="left">
+  <img src="https://user-images.githubusercontent.com/33718928/138575911-a909a701-d124-4e0a-b989-a0d785f13dc0.png" width="100" />
+  <img src="https://user-images.githubusercontent.com/33718928/138575872-05d5df0e-1fe4-455c-9caa-7a4e8a90f3d3.png" width="100" />
+</p>
 
 ### Other functionalities not in the video that were included by me are:
 -   [ ]
