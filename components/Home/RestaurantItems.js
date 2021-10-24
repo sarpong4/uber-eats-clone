@@ -4,34 +4,48 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 
 export const localRestaurants = [];
 
-export default function RestaurantItems(props) {
+export default function RestaurantItems({ navigation, ...props }) {
   return (
-    <TouchableOpacity activeOpacity={1} style={{ marginBottom: 5}}>
+    <>
       {props.restaurantData.map((restaurant, index) => (
-        <View
+        <TouchableOpacity
           key={index}
-          style={{
-            marginTop: 10,
-            padding: 15,
-            backgroundColor: "white",
-          }}
+          activeOpacity={0.9}
+          style={{ marginBottom: 5 }}
+          onPress={() =>
+            navigation.navigate("RestaurantDetail", {
+              name: restaurant.name,
+              image: restaurant.image_url,
+              price: restaurant.price,
+              reviews: restaurant.review_count,
+              rating: restaurant.rating,
+              categories: restaurant.categories,
+            })
+          }
         >
-          {/* Restaurant Image */}
-          <RestaurantImage image={restaurant.image_url} />
-          {/* Restaurant Info */}
-          <RestaurantInfo name={restaurant.name} rating={restaurant.rating} />
-        </View>
+          <View
+            style={{
+              marginTop: 10,
+              padding: 15,
+              backgroundColor: "white",
+            }}
+          >
+            {/* Restaurant Image */}
+            <RestaurantImage image={restaurant.image_url} />
+            {/* Restaurant Info */}
+            <RestaurantInfo name={restaurant.name} rating={restaurant.rating} />
+          </View>
+        </TouchableOpacity>
       ))}
-    </TouchableOpacity>
+    </>
   );
 }
-
 
 const RestaurantImage = (props) => (
   <>
     <Image
       source={{
-        uri: props.image
+        uri: props.image,
       }}
       style={{
         width: "100%",
