@@ -2,18 +2,18 @@
 
 This app was a code along session organized by clever programmer on youtube.
 
+
 SCREENS COMPLETED
 -   [x] Home Screen
 -   [ ] RestaurantDetail Screen
 -   [ ] Orders Screen
 -   [ ] Profile Screen
 
-### Home Screen
-![Screenshot_20211024-005954](https://user-images.githubusercontent.com/33718928/138575911-a909a701-d124-4e0a-b989-a0d785f13dc0.png)
+### Home Screen (City: Hollywood)
+#### Delivery              |  #### Pickup
+:-------------------------:|:-------------------------:
+![Screenshot_20211024-005954](https://user-images.githubusercontent.com/33718928/138575911-a909a701-d124-4e0a-b989-a0d785f13dc0.png)  |  ![Screenshot_20211024-003512](https://user-images.githubusercontent.com/33718928/138575872-05d5df0e-1fe4-455c-9caa-7a4e8a90f3d3.png)
 
-
-![Screenshot_20211024-003512](https://user-images.githubusercontent.com/33718928/138575872-05d5df0e-1fe4-455c-9caa-7a4e8a90f3d3.png)
-
-Other functionalities not in the video that were included by me are:
-- [ ]
+### Other functionalities not in the video that were included by me are:
+-   [ ]
 
