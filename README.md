@@ -9,7 +9,8 @@ SCREENS COMPLETED
 -   [ ] Profile Screen
 
 ### Home Screen
-![Screenshot_20211024-003501](https://user-images.githubusercontent.com/33718928/138575859-7cbaa653-baa6-4e01-a777-29b2e2a6d48f.png)
+![Screenshot_20211024-003422](https://user-images.githubusercontent.com/33718928/138575879-2c3a2871-8539-494e-9a57-75608217f44f.png)
+
 
 
 Other functionalities not in the video that were included by me are:
