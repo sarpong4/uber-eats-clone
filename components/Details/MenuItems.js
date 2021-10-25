@@ -5,10 +5,10 @@ import {
   StyleSheet,
   Image,
   ScrollView,
-  Touchable,
   TouchableOpacity,
 } from "react-native";
 import { Divider } from "react-native-elements";
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 const foods = [
   {
@@ -21,7 +21,7 @@ const foods = [
   {
     title: "Tandori Chicken",
     description:
-      "Amazing Indian dish with tenderloin chicken off the sizzles 🔥",
+      "Amazing Indian dish with a tenderloin chicken off the sizzles 🔥",
     price: "$19.20",
     image:
       "https://images.unsplash.com/photo-1606659894340-67897be51c63?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHRhbmRvcmklMjBjaGlja2VufGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
@@ -36,7 +36,7 @@ const foods = [
   {
     title: "Chicken Caesar Salad",
     description:
-      "One can never go wrong with a chicken caesar salad. Healthy and Delicious 🤤",
+      "One can never go wrong with chicken caesar salad. Healthy and Delicious 🤤",
     price: "$21.50",
     image:
       "https://images.unsplash.com/photo-1567121938596-6d9d015d348b?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fGNoaWNrZW4lMjBjYWVzYXIlMjBzYWxhZHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
@@ -76,8 +76,8 @@ const foods = [
 const styles = StyleSheet.create({
   menuItemStyle: {
     flexDirection: "row",
-    justifyContent: "space-between",
-    margin: 15,
+    justifyContent: "space-evenly",
+    padding: 20,
   },
   titleStyle: {
     fontSize: 19,
@@ -89,13 +89,17 @@ export default function MenuItems() {
   return (
     <>
       {foods.map((food, index) => (
-        <TouchableOpacity
-          key={index}
-          activeOpacity={0.9}
-          style={{ marginBottom: 5 }}
-        >
+        <TouchableOpacity key={index} activeOpacity={0.9}>
           <View>
             <View style={styles.menuItemStyle}>
+              <BouncyCheckbox
+                iconStyle={{
+                  borderColor: "lightgray",
+                  borderRadius: 0,
+                }}
+                fillColor="green"
+                size={20}
+              />
               <FoodInfo food={food} />
               <FoodImage food={food} />
             </View>
@@ -112,7 +116,7 @@ export default function MenuItems() {
 }
 
 const FoodInfo = (props) => (
-  <View style={{ width: "70%", justifyContent: "space-evenly" }}>
+  <View style={{ width: "63%", justifyContent: "space-between", padding: 5 }}>
     <Text style={styles.titleStyle}>{props.food.title}</Text>
     <Text>{props.food.description}</Text>
     <Text>{props.food.price}</Text>
@@ -122,8 +126,6 @@ const FoodInfo = (props) => (
 const FoodImage = (props) => (
   <Image
     source={{ uri: props.food.image }}
-    style={{ width: 100, height: 100, borderRadius: 8 }}
+    style={{ width: 100, height: 100, borderRadius: 10, marginHorizontal: 5 }}
   />
 );
-
-// TimeStamp = 3:25:52
