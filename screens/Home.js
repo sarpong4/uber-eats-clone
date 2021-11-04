@@ -8,13 +8,13 @@ import RestaurantItems, {
   localRestaurants,
 } from "../components/Home/RestaurantItems";
 import SearchBar from "../components/Home/SearchBar";
+require('dotenv').config();
 
-const YELP_API_KEY =
-  "mNGSMRW1wBIaWuyOr-q1_cBtMuPYbOU24hdsVEO8oLQ8aTQx67okpmhDbFEdztUnf4LyXEgi-1oYjiQ54IeH4qfDHU5mOtF7CEEmt5ASsLAPhcMczsU-T_hkFWR0YXYx";
+const YELP_API_KEY = process.env.YELP_API_KEY
 
 export default function Home({ navigation }) {
   const [restaurantData, setRestaurantData] = useState(localRestaurants);
-  const [city, setCity] = useState("Hollywood");
+  const [city, setCity] = useState("SanDiego");
   const [activeTab, setActiveTab] = useState("Delivery");
   const [page, setPage] = useState("Home")
 
