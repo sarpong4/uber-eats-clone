@@ -8,15 +8,16 @@ import RestaurantItems, {
   localRestaurants,
 } from "../components/Home/RestaurantItems";
 import SearchBar from "../components/Home/SearchBar";
-require('dotenv').config();
+// require("dotenv").config();
 
-const YELP_API_KEY = process.env.YELP_API_KEY
+const YELP_API_KEY =
+  "o9i3FxX0Lf-li6oOSNPP6n1zv6lPVrBEffGcZATHfKZzkwGdCEjK455uEztZk5fsiNpAebpq_4ejNZolM2FuI_2TDmw8Pw95bdsx7A7FJsAE67XC40Gyc5X0pRCDYXYx";
 
 export default function Home({ navigation }) {
   const [restaurantData, setRestaurantData] = useState(localRestaurants);
   const [city, setCity] = useState("SanDiego");
   const [activeTab, setActiveTab] = useState("Delivery");
-  const [page, setPage] = useState("Home")
+  const [page, setPage] = useState("Home");
 
   const getRestaurantsFromYelp = async () => {
     const yelpURL = `https://api.yelp.com/v3/businesses/search?term=restaurant&location=${city}`;
@@ -50,7 +51,10 @@ export default function Home({ navigation }) {
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Categories />
-        <RestaurantItems restaurantData={restaurantData} navigation={navigation} />
+        <RestaurantItems
+          restaurantData={restaurantData}
+          navigation={navigation}
+        />
       </ScrollView>
       <Divider width={1} />
       <BottomTabs page={page} />
