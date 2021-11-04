@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, SafeAreaView, ScrollView } from "react-native";
 import { Divider } from "react-native-elements/dist/divider/Divider";
-import BottomTabs from "../components/BottomTabs";
-import Categories from "../components/Categories";
-import HeaderTabs from "../components/HeaderTabs";
+import BottomTabs from "../components/Home/BottomTabs";
+import Categories from "../components/Home/Categories";
+import HeaderTabs from "../components/Home/HeaderTabs";
 import RestaurantItems, {
   localRestaurants,
-} from "../components/RestaurantItems";
-import SearchBar from "../components/SearchBar";
+} from "../components/Home/RestaurantItems";
+import SearchBar from "../components/Home/SearchBar";
+// require("dotenv").config();
 
 const YELP_API_KEY =
-  "mNGSMRW1wBIaWuyOr-q1_cBtMuPYbOU24hdsVEO8oLQ8aTQx67okpmhDbFEdztUnf4LyXEgi-1oYjiQ54IeH4qfDHU5mOtF7CEEmt5ASsLAPhcMczsU-T_hkFWR0YXYx";
+  "o9i3FxX0Lf-li6oOSNPP6n1zv6lPVrBEffGcZATHfKZzkwGdCEjK455uEztZk5fsiNpAebpq_4ejNZolM2FuI_2TDmw8Pw95bdsx7A7FJsAE67XC40Gyc5X0pRCDYXYx";
 
-export default function Home() {
+export default function Home({ navigation }) {
   const [restaurantData, setRestaurantData] = useState(localRestaurants);
-  const [city, setCity] = useState("Hollywood");
+  const [city, setCity] = useState("SanDiego");
   const [activeTab, setActiveTab] = useState("Delivery");
-  const [page, setPage] = useState("Home")
+  const [page, setPage] = useState("Home");
 
   const getRestaurantsFromYelp = async () => {
     const yelpURL = `https://api.yelp.com/v3/businesses/search?term=restaurant&location=${city}`;
@@ -50,7 +51,10 @@ export default function Home() {
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Categories />
-        <RestaurantItems restaurantData={restaurantData} />
+        <RestaurantItems
+          restaurantData={restaurantData}
+          navigation={navigation}
+        />
       </ScrollView>
       <Divider width={1} />
       <BottomTabs page={page} />
