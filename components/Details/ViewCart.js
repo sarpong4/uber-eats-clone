@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { View, Text, TouchableOpacity, Modal, StyleSheet } from "react-native";
 import { useSelector } from "react-redux";
 import OrderItem from "./OrderItem";
+import addFirebaseOrder from "../../firebase";
+import { serverTimestamp } from "@firebase/firestore";
 
 export default function ViewCart() {
   const [modalVisible, setModalVisible] = useState(false);
@@ -26,6 +28,15 @@ export default function ViewCart() {
 
   const totalStr = formats(total);
 
+  const addOrderToFirebase = () => {
+    addFirebaseOrder({
+      items: items,
+      restaurantName: restaurantName,
+      createdAt: serverTimestamp(),
+    });
+    setModalVisible(false);
+  };
+
   const styles = StyleSheet.create({
     modalContainer: {
       flex: 1,
@@ -35,7 +46,7 @@ export default function ViewCart() {
     modalCheckoutContainer: {
       backgroundColor: "white",
       padding: 16,
-      height: "65%",
+      height: "80%",
       borderWidth: 1,
     },
 
@@ -75,7 +86,7 @@ export default function ViewCart() {
             <View style={{ flexDirection: "row", justifyContent: "center" }}>
               <TouchableOpacity
                 style={{
-                  marginTop: 20,
+                  marginTop: 2,
                   backgroundColor: "black",
                   alignItems: "center",
                   padding: 10,
@@ -83,11 +94,19 @@ export default function ViewCart() {
                   width: "85%",
                   position: "relative",
                 }}
-                onPress={() => setModalVisible(false)}
+                onPress={() => {
+                  addOrderToFirebase();
+                }}
               >
                 <Text style={{ color: "white", fontSize: 20 }}>Checkout</Text>
                 <Text
-                  style={{ position: "absolute", right: 20, color: "white", fontSize: 15, top:15, }}
+                  style={{
+                    position: "absolute",
+                    right: 20,
+                    color: "white",
+                    fontSize: 15,
+                    top: 15,
+                  }}
                 >
                   {total ? totalStr : ""}
                 </Text>
